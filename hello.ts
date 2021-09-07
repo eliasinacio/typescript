@@ -39,3 +39,29 @@ function analyse (human: person | string) {
 
 analyse({ name: {first: 'julian'}, age: 24})
 analyse('julian')
+
+// difference between interface and type
+interface User {
+  name: string
+}
+
+interface Admin extends User {
+  ID: number,
+  key: number
+}
+
+// ----++----++----
+
+type Userr = {
+  name: string
+}
+
+type Adminn = Userr & {
+  ID: number,
+  key: number
+}
+
+// This is a type assertion when the types are much specific 
+const div = document.querySelector('div') as HTMLDivElement;
+// Also can be like this
+const title = <HTMLHeadElement>document.getElementById('title');

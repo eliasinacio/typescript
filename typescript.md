@@ -63,3 +63,31 @@ type Point = {
 // We may to use with any types
 type ID = number | string;
 ```
+
+
+### type vs interface
+Are similar and can be used both in any possibilities.
+But interface is extendable. 
+#### extending a interface: 
+```ts
+interface User = { 
+  ID: string 
+}
+
+interface Admin extends User = {
+  Key: number
+}
+
+
+```
+
+#### extending a type with intersection: 
+```ts
+type User = { 
+  ID: string 
+}
+
+type Admin = User & {
+  Key: number
+}
+```
