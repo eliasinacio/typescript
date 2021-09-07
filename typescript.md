@@ -7,6 +7,7 @@
 
 ### primitive types don't need to assignment
 `const name = 'elon`
+
 `let userAge = 19`
 
 
@@ -15,13 +16,13 @@
 
 
 ### functions with specific parameters types
-```js
+```ts
 function sayName ( name: string) {
   return console.log(`hi ${name}`);
 }
 ```
 To specific function return types, we do this
-```js
+```ts
 function sayName ( name: string): void {
   console.log(`hi ${name}`);
 }
@@ -29,7 +30,7 @@ function sayName ( name: string): void {
 
 
 ### object types and optional properties `?`
-```js
+```ts
 function analyze ( obj: { x: number, y?: string }): void {
   console.log(obj);
 }
@@ -37,3 +38,28 @@ function analyze ( obj: { x: number, y?: string }): void {
 A way to access optional properties in objects
 `console.log(obj.last?.toUpperCase())`
 
+
+### Using more than one types at the same time
+```ts
+type User = { id: number, name: string }
+
+function sayMyName (user: string | User): void {
+  // but you must treat them separately
+  if (typeof user === 'string') {
+    console.log(`Hi ${user}`)
+  } else {
+    console.log(`Hi ${user.name}`)
+  }
+}
+```
+
+
+### Type aliases
+```ts
+type Point = {
+  x: number,
+  y: number
+}
+// We may to use with any types
+type ID = number | string;
+```

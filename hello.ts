@@ -1,4 +1,4 @@
-// type declaration for objects
+// type alias declaration
 type person = { 
   name: {
     first: string, 
@@ -28,3 +28,14 @@ let man: person = {
 
 // Best way to access a optional property 
 console.log(man.parent?.name.last ?? 'no parent responsible')
+
+function analyse (human: person | string) {
+  if (typeof(human) === 'object') {
+    console.log(`Hi ${human.age} years old human, called ${human.name.first} `)
+  } else {
+    console.log(`Hi human, called ${human} `)
+  }
+}
+
+analyse({ name: {first: 'julian'}, age: 24})
+analyse('julian')
